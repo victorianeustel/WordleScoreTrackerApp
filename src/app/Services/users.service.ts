@@ -16,23 +16,25 @@ export class UsersService {
 
   constructor(private http: HttpClient, private db: AngularFireDatabase) { }
 
-  //get accounts from database
-  getUsers(){
+  addUser(newUser: User) {
+    return this.http.post(
+      'https://wordle-contest-default-rtdb.firebaseio.com/' + 'Users.json',
+      newUser
+    );
+  }
+
+  getUsers() {
     return this.http
-    .get<User[]>
-      ('https://wordle-contest-default-rtdb.firebaseio.com' + 'users.json')
+      .get<User[]>(
+        'https://wordle-contest-default-rtdb.firebaseio.com/' + 'Users.json'
+      )
       .pipe(
         map((responseData) => {
           const userList: User[] = [];
-          this.idList = [];
-          for (const key in responseData)
-           userList.push(responseData[key]);
-          for (const key in responseData)
-            this.idList.push(key);
-
-          // console.log(key in responseData);
+          for (const key in responseData) userList.push(responseData[key]);
           return userList;
         })
       );
   }
+  // }
 }

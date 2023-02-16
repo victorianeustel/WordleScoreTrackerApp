@@ -1,6 +1,21 @@
 <body>
   <img src="assets/WordleLogo.png" alt="2023 Wordle Contest" width="500" class="logo">
-
+  <mat-toolbar>
+    <ul class="navbar-nav flex-grow">
+      <li
+        class="nav-item"
+        [routerLinkActive]="['link-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['link-active']">
+        <a class="nav-link text-dark" [routerLink]="['/scores']"
+          >Scores</a
+        >
+      </li>
+    </ul>
+  </mat-toolbar>
   <main class="container">
       <router-outlet></router-outlet>
   </main>

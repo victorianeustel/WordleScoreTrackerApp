@@ -13,25 +13,25 @@ export class WordsService {
 
   constructor(private http: HttpClient) { }
 
-  getWords(){
-    this.wordsList = [];
+  addWord(newWord: Word) {
+    return this.http.post(
+      'https://wordle-contest-default-rtdb.firebaseio.com/' + 'Words.json',
+      newWord
+    );
+  }
+
+  getWords() {
     return this.http
-    .get<Word[]>
-      ('https://wordle-contest-default-rtdb.firebaseio.com/' + 'words.json')
+      .get<Word[]>(
+        'https://wordle-contest-default-rtdb.firebaseio.com/' + 'Words.json'
+      )
       .pipe(
         map((responseData) => {
-          for (const key in responseData)
-           this.wordsList.push(responseData[key]);
-        
-           return this.wordsList;
+          const wordList: Word[] = [];
+          for (const key in responseData) wordList.push(responseData[key]);
+          return wordList;
         })
       );
   }
-
-  addWord(word: Word) {
-    return this.http.post(
-      'https://wordle-contest-default-rtdb.firebaseio.com/'+ 'words.json',
-      word
-    );
-  }
+  // }
 }

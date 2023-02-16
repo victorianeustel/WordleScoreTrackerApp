@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Score, scores } from '../../Models/score';
+import { Score } from '../../Models/score';
 import { User } from '../../Models/user';
 import { ScoresService } from '../../Services/scores.service';
 
@@ -11,7 +11,6 @@ import { ScoresService } from '../../Services/scores.service';
 })
 export class ScoresComponent {
   
-  scores = scores;
-  constructor(private score: ScoresService) { }
+  constructor(private scrServ: ScoresService) { }
 
 }

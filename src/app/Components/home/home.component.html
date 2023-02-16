@@ -1,1 +1,28 @@
 <p>home works!</p>
+
+    <div *ngFor="let user of userList">
+        <div>Name: {{user.name}}</div>
+    </div>
+    <h1>words</h1>
+    <div *ngFor="let word of wordList">
+        <div>{{word.word}} - {{word.date}}</div>
+    </div>
+
+    <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="sName" placeholder="User Name">
+    </div>
+
+    <div class="form-group">
+        <button (click)="addNewUser()" >Add User</button>
+      </div>
+
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="word" placeholder="word">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="date" placeholder="date">
+    </div>
+
+    <div class="form-group">
+        <button (click)="addNewWord()" >Add Word</button>
+      </div>
