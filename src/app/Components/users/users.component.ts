@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { UsersService } from '../Services/users.service';
+import { UsersService } from '../../Services/users.service';
 
 @Component({
   selector: 'app-users',

@@ -5,6 +5,8 @@ import { User } from 'src/app/Models/user';
 
 import { WordsService } from 'src/app/Services/words.service';
 import { Word } from 'src/app/Models/word';
+import { Score } from 'src/app/Models/score';
+import { ScoresService } from 'src/app/Services/scores.service';
 
 
 @Component({
@@ -13,15 +15,21 @@ import { Word } from 'src/app/Models/word';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  displayedColumns: string[] = ['ID', 'Word'];
   userList: User[] = [];
   wordList: Word[] = [];
+  scoreList: Score[] = [];
 
   sName = "";
   word = "";
   date = "";
   num=0;
-  
-  constructor(private userServ: UsersService, private wordServ: WordsService) {}
+  id = 0;
+  score = 0;
+  userID = 0;
+  wordID = 0;
+
+  constructor(private userServ: UsersService, private wordServ: WordsService, private scrServ: ScoresService) {}
 
   ngOnInit() {
     this.fetchData();
@@ -34,11 +42,16 @@ export class HomeComponent implements OnInit {
     this.wordServ.getWords().subscribe((data) => {
       this.wordList = data;
     });
+    this.scrServ.getScores().subscribe((data)=>{
+      this.scoreList = data;
+    })
   }
 
   addNewUser() {
     const newUser: User = {
+      id: ++this.id,
       name: this.sName,
+
     };
     this.userServ.addUser(newUser).subscribe((data) => {
       console.log(data);
@@ -50,7 +63,7 @@ export class HomeComponent implements OnInit {
     const newWord: Word = {
       word: this.word,
       date: this.date,
-      wordID: ++this.num,
+      id: ++this.num,
     };
     this.wordServ.addWord(newWord).subscribe((data) => {
       console.log(data);
@@ -58,5 +71,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  addNewScore() {
+    const newScore: Score = {
+      userID: this.userID,
+      wordID: this.wordID,
+      score: this.score,
+    };
+    this.scrServ.addScore(newScore).subscribe((data) => {
+      console.log(data);
+      this.fetchData();
+    });
+  }
 
 }

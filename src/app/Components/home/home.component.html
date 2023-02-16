@@ -1,6 +1,28 @@
-<p>home works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col col-md">
+            <table class="table table-bordered" >
+                <tr>
+                    <th>Date</th>
+                    <th>Word</th>
+                    <th *ngFor="let user of userList">{{user.name}}</th>
+                </tr>
+                <tr *ngFor ="let word of wordList">
+                    <td>{{word.date}}</td>
+                    <td>{{word.word}}</td>
+                    <td *ngFor="let score of scoreList"> {{score.score}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col col-lg-4">
+            <mat-card>Hello</mat-card>
+        </div>
+    </div>
 
-    <div *ngFor="let user of userList">
+</div>
+
+
+    <!-- <div *ngFor="let user of userList">
         <div>Name: {{user.name}}</div>
     </div>
     <h1>words</h1>
@@ -10,19 +32,40 @@
 
     <div class="form-group">
         <input class="form-control" type="text" [(ngModel)]="sName" placeholder="User Name">
-    </div>
+    </div> -->
 
-    <div class="form-group">
-        <button (click)="addNewUser()" >Add User</button>
-      </div>
 
+    <!-- <div class="form-group">
+        <button (click)="addNewScore()" >Add User</button>
+      </div> -->
+<h2>add word</h2>
+<div class="form-group">
+    <input class="form-control" type="text" [(ngModel)]="word" placeholder="word">
+</div>
+<div class="form-group">
+    <input class="form-control" type="text" [(ngModel)]="date" placeholder="date">
+</div>
+
+<div class="form-group">
+    <button (click)="addNewWord()" >Add word</button>
+  </div>
+
+      <h2>add score</h2>
       <div class="form-group">
-        <input class="form-control" type="text" [(ngModel)]="word" placeholder="word">
+        <label for="">user id</label>
+
+        <input class="form-control" type="text" [(ngModel)]="userID" placeholder="userid">
     </div>
     <div class="form-group">
-        <input class="form-control" type="text" [(ngModel)]="date" placeholder="date">
+        <label for="">word id</label>
+        <input class="form-control" type="text" [(ngModel)]="wordID" placeholder="wordid">
+    </div>
+    <div class="form-group">
+        <label for="">score</label>
+
+        <input class="form-control" type="text" [(ngModel)]="score" placeholder="score">
     </div>
 
     <div class="form-group">
-        <button (click)="addNewWord()" >Add Word</button>
+        <button (click)="addNewScore()" >Add score</button>
       </div>

@@ -1,6 +1,6 @@
-import { Word } from "./word";
 
 export interface Score {
-    word: Word;
+    userID: number;
+    wordID: number;
     score: number;
 }

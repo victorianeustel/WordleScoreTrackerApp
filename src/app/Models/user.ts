@@ -1,6 +1,5 @@
-import { Score } from "./score";
 
 export interface User {
+    id: number;
     name: string;
-    // scores: Score[];
 }

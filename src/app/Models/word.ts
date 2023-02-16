@@ -1,5 +1,5 @@
 export interface Word {
-    wordID: number;
+    id: number;
     date: string;
     word: string;
 }

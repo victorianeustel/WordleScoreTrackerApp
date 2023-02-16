@@ -12,8 +12,6 @@ import { findIndex, map, timer } from 'rxjs';
 })
 export class UsersService {
 
-  idList: string[] = [];
-
   constructor(private http: HttpClient, private db: AngularFireDatabase) { }
 
   addUser(newUser: User) {
@@ -36,5 +34,4 @@ export class UsersService {
         })
       );
   }
-  // }
 }
