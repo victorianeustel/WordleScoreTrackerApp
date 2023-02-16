@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
       word: this.word,
       date: this.date,
       id: ++this.num,
+      scores: this.scoreList,
     };
     this.wordServ.addWord(newWord).subscribe((data) => {
       console.log(data);

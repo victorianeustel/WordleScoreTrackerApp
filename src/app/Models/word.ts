@@ -1,7 +1,10 @@
+import { Score } from "./score";
+
 export interface Word {
     id: number;
     date: string;
     word: string;
+    scores: Score[];
 }
 
 // export const words = [

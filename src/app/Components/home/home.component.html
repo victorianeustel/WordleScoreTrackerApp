@@ -1,16 +1,20 @@
 <div class="container">
     <div class="row">
         <div class="col col-md">
-            <table class="table table-bordered" >
+            <table class="table" >
                 <tr>
                     <th>Date</th>
                     <th>Word</th>
                     <th *ngFor="let user of userList">{{user.name}}</th>
                 </tr>
-                <tr *ngFor ="let word of wordList">
+                <tr *ngFor ="let word of wordList" >
                     <td>{{word.date}}</td>
                     <td>{{word.word}}</td>
-                    <td *ngFor="let score of scoreList"> {{score.score}}</td>
+                    <td >score</td>
+                    <td >score</td>
+                    <td >score</td>
+                    <td >score</td>
+                    <td >score</td>
                 </tr>
             </table>
         </div>
