@@ -54,6 +54,7 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
       { path: '', component: HomeComponent },
       { path: 'scores', component: ScoresComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'scores-list', component: ScoresListComponent},
     ])
   ],
   providers: [ScoresService, UsersService, WordsService],
