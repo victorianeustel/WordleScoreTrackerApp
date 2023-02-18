@@ -48,9 +48,9 @@ const getUserById = (request, response) => {
   }
 
   const getScoresByWordID = (request, response) => {
-    const id = partInt(request.params.id)
+    const id = parseInt(request.params.id)
 
-    pool.query('select words.word_id, users.user_id, score_value from scores full join users on scores.user_id = users.user_id full join words on scores.word_id = words.word_id where words.word_id = $1', [id], (error, results) => {
+    pool.query('SELECT user_id, score_value FROM scores WHERE word_id = $1', [id], (error, results) => {
         if (error) {
           throw error
         }
