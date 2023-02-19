@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import {mergeMap} from 'rxjs/operators';
-
+import {MatList, MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 import { AngularFireModule } from '@angular/fire/compat';
@@ -29,6 +29,9 @@ import { ScoresListComponent } from './Components/scores-list/scores-list.compon
 
 import { environment } from 'src/environments/environment.development';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
+import { RankingsComponent } from './Components/rankings/rankings.component';
+import { AddScoreComponent } from './add-score/add-score.component';
+import { AddWordComponent } from './add-word/add-word.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +40,14 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
     UsersComponent,
     HomeComponent,
     ScoresListComponent,
-    NavBarComponent
+    NavBarComponent,
+    RankingsComponent,
+    AddScoreComponent,
+    AddWordComponent
   ],
   imports: [
+    MatListModule,
+    MatGridListModule,
     MatDatepickerModule,
     MatCardModule,
     MatTableModule,
@@ -55,7 +63,11 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
       { path: 'scores', component: ScoresComponent },
       { path: 'users', component: UsersComponent },
       { path: 'scores-list', component: ScoresListComponent},
-    ])
+      { path: 'add-score', component: AddScoreComponent },
+      { path: 'add-word', component: AddWordComponent},
+      
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [ScoresService, UsersService, WordsService],
   bootstrap: [AppComponent]

@@ -1,8 +1,7 @@
-
 body{
-    justify-content: center;
-    color: rgb(37, 107, 39)
+    width: max-content;
 }
+
 #title{
     color: rgb(70,159,73);
 }
@@ -10,10 +9,9 @@ body{
 .styled-table {
     
     border-collapse: collapse;
-    margin: auto;
     font-size: 0.9em;
     font-family: Arial, Helvetica, sans-serif;
-    min-width: 750px;
+    min-width: 300px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         background-color: #d1e5c9;
     
@@ -27,7 +25,7 @@ body{
 
 .styled-table th,
 .styled-table td {
-    padding: 8px 5px;
+    padding: 12px 15px;
 }
 
 

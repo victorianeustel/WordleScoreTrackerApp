@@ -50,7 +50,7 @@ export class ScoresListComponent {
       }
       else {
       }
-    }return null;
+    }return "-";
   }
 
 }

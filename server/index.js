@@ -29,6 +29,12 @@ app.get('/scores', db.getScores)
 
 app.get('/scores/:id', db.getScoresByWordID)
 
+app.get('/rankings', db.getRankings)
+
+app.get('/addScores', db.addScore)
+
+app.get('/addWord', db.addWord)
+
   
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

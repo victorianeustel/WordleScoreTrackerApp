@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 import { User } from '../Models/user';
 import { UsersService } from './users.service';
 import { WordsService } from './words.service';
+import { Ranking } from '../Models/ranking';
 
 @Injectable({
   providedIn: 'root'
@@ -36,17 +37,18 @@ export class ScoresService {
       );
   }
 
-  // getScoresById() {
-  //   return this.http
-  //     .get<Score[]>(
-  //       this.apiURL + 'scores/:id'
-  //     )
-  //     .pipe(
-  //       map((responseData) => {
-  //         const scoreList: Score[] = [];
-  //         for (const key in responseData) scoreList.push(responseData[key]);
-  //         return scoreList;
-  //       })
-  //     );
-  // }
+  getRankings() {
+    return this.http
+      .get<Ranking[]>(
+        this.apiURL + 'rankings'
+      )
+      .pipe(
+        map((responseData) => {
+          const rankingList: Ranking[] = [];
+          for (const key in responseData) rankingList.push(responseData[key]);
+          return rankingList;
+        })
+      );
+  }
+
 }

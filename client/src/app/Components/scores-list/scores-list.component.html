@@ -1,16 +1,15 @@
-<h2>Score History</h2>
-<table class="table-auto"  >
+<table class="styled-table"  >
     <thead>
         <tr>
             <!-- <th>Date</th> -->
-            <th>Word</th>
-            <th *ngFor="let user of userList">{{user.user_name}}</th>
+            <th style="text-align: right; width: 75px;">Word</th>
+            <th *ngFor="let user of userList" style="text-align: center; width: 100px;">{{user.user_name}}</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor ="let word of wordList; let i = index" >
-            <td>{{word.word_value}}</td>
-            <td *ngFor = "let user of userList">
+            <td style="font-weight: 600; color: rgb(37, 107, 39); text-align: right;">{{word.word_value}}</td>
+            <td *ngFor = "let user of userList" style="text-align: center; width: 100px;">
                 {{ getUsersScore(word.word_id, user.user_id)}}
             </td>
         </tr>

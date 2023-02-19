@@ -58,10 +58,44 @@ const getUserById = (request, response) => {
       })
   }
 
+  const getRankings = (request, response) => {
+    pool.query('SELECT * FROM public."rankingByAverage"', (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+
+  const addWord = (request, response) => {
+    const { word_value, word_date } = request.body
+
+    pool.query('Insert into words (word_value, word_date) values ($1, $2) RETURNING *', [word_value, word_date], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(201).send(`Word added with ID: ${results.rows[0].id}`)
+    })
+}
+
+const addScore = (request, response) => {
+  const { user_id, word_id, score_value } = request.body
+
+  pool.query('Insert into scores (user_id, word_id, score_value) values ($1, $2, $3) RETURNING *', [user_id, word_id, score_value], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(201).send(`Score added with ID`)
+  })
+}
+
   module.exports = {
     getWords,
     getUsers,
     getUserById,
     getScores,
     getScoresByWordID,
+    getRankings,
+    addWord,
+    addScore,
   }
