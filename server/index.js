@@ -10,7 +10,7 @@ const pool = new Pool({
   password: process.env.DB_PASS = 'lauren97',
   database: process.env.DB_NAME = 'wordle-contest',
   port: process.env.PORT = 5432,
-  socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
+  host: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
 })
 
 app.use(bodyParser.json())
