@@ -4,6 +4,7 @@ INSTANCE_CONNECTION_NAME=arcane-fire-378117:us-central1:wordle-contest
 DB_USER=postgres
 DB_PASS=lauren97
 DB_NAME=wordle-contest
+PORT=5432
 
 gcloud builds submit --tag gcr.io/$GOOGLE_PROJECT_ID/$CLOUD_RUN_SERVICE \ 
 --project=$GOOGLE_PROJECT_ID
