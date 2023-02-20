@@ -71,9 +71,3 @@ app.get('/words', async (request, response)=>
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
 })
-
-// Listen to the specified port, otherwise 3080
-const PORT = process.env.PORT || 8090;
-const server = app.listen(PORT, () => {
-  console.log(`Server Running: http://localhost:${PORT}`);
-});
