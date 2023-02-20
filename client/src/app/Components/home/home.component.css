@@ -1,3 +1,32 @@
-container{
+.container{
     margin: auto;
+    
+}
+
+.card{
+    margin-bottom: 30px;
+    /* border:3px;
+    border-style: solid; */
+    border-radius: 10px;
+    /* border-color: #447947 ;  */
+    width: fit-content;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.20);
+
+
+}
+
+img{
+    opacity: 50%;
+    border-radius: 10px;
+    margin: 10px;
+    width: 16rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
+}
+
+.card-header{
+    text-align: center;
+    font-weight: 800;
+    background-color: #787d80;
+    color: white;
+    font-weight: 800;
 }

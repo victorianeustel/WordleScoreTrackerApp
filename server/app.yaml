@@ -1,7 +1,0 @@
-runtime: nodejs18
-
-env_variables:
-  DB_USER: "postgres"
-  DB_NAME: "postgres"
-  DB_PASS: "sDf%QpOPP:HI,q4R"
-  DB_INSTANCE: "arcane-fire-378117:us-central1:wordle-contest"

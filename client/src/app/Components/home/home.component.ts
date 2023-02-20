@@ -7,6 +7,8 @@ import { WordsService } from 'src/app/Services/words.service';
 import { Word } from 'src/app/Models/word';
 import { Score } from 'src/app/Models/score';
 import { ScoresService } from 'src/app/Services/scores.service';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 @Component({

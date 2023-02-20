@@ -67,27 +67,27 @@ const getUserById = (request, response) => {
     })
   }
 
-//   const addWord = (request, response) => {
-//     const { word_value, word_date } = request.body
+  const addWord = (request, response) => {
+    const { word_value, word_date } = request.body
 
-//     pool.query('Insert into words (word_value, word_date) values ($1, $2) RETURNING *', [word_value, word_date], (error, results) => {
-//       if (error) {
-//         throw error
-//       }
-//       response.status(201).send(`Word added with ID: ${results.rows[0].id}`)
-//     })
-// }
+    pool.query('Insert into words (word_value, word_date) values ($1, $2) RETURNING *', [word_value, word_date], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(201).send(`Word added with ID: ${results.rows[0].id}`)
+    })
+}
 
-// const addScore = (request, response) => {
-//   const { user_id, word_id, score_value } = request.body
+const addScore = (request, response) => {
+  const { user_id, word_id, score_value } = request.body
 
-//   pool.query('Insert into scores (user_id, word_id, score_value) values ($1, $2, $3) RETURNING *', [user_id, word_id, score_value], (error, results) => {
-//     if (error) {
-//       throw error
-//     }
-//     response.status(201).send(`Score added with ID`)
-//   })
-// }
+  pool.query('Insert into scores (user_id, word_id, score_value) values ($1, $2, $3) RETURNING *', [user_id, word_id, score_value], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(201).send(`Score added with ID`)
+  })
+}
 
   module.exports = {
     getWords,
@@ -96,7 +96,7 @@ const getUserById = (request, response) => {
     getScores,
     getScoresByWordID,
     getRankings,
-    // addWord,
-    // addScore,
+    addWord,
+    addScore,
   }
 

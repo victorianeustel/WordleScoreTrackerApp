@@ -30,8 +30,9 @@ import { ScoresListComponent } from './Components/scores-list/scores-list.compon
 import { environment } from 'src/environments/environment.development';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { RankingsComponent } from './Components/rankings/rankings.component';
-import { AddScoreComponent } from './add-score/add-score.component';
-import { AddWordComponent } from './add-word/add-word.component';
+import { AddScoreComponent } from './Components/add-score/add-score.component';
+import { AddWordComponent } from './Components/add-word/add-word.component';
+import { WordsComponent } from './Components/words/words.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AddWordComponent } from './add-word/add-word.component';
     NavBarComponent,
     RankingsComponent,
     AddScoreComponent,
-    AddWordComponent
+    AddWordComponent,
+    WordsComponent
   ],
   imports: [
     MatListModule,
