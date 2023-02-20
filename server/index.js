@@ -1,14 +1,20 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const pg = require('pg');
+const  router = express.Router();
 const db = require('./queries')
-const port = "3000"
 
-app.set('trust proxy', true);
+const port = process.env.PORT || 8080;
 
-var cors = require('cors')
- 
-app.use(cors())
+const Pool = pg.Pool;
+
+const pool = new Pool({
+  user: process.env.DB_USER = 'postgres',
+  password: process.env.DB_PASS = 'h2;\TZIM=BrJ?>V_',
+  database: process.env.DB_NAME = 'wordle-contest',
+  socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
+})
 
 app.use(bodyParser.json())
 app.use(
@@ -20,10 +26,10 @@ app.use(
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
   })
-  
-app.get('/words', db.getWords)
 
-app.get('/users', db.getUsers)
+app.get('users', db.getUsers)
+
+app.get('words', db.getWords)
 
 app.get('/users/:id', db.getUserById)
 
@@ -33,11 +39,9 @@ app.get('/scores/:id', db.getScoresByWordID)
 
 app.get('/rankings', db.getRankings)
 
+app.get('/addScores', db.addScore)
 
-
-// app.get('/addScores', db.addScore)
-
-// app.get('/addWord', db.addWord)
+app.get('/addWord', db.addWord)
 
   
 app.listen(port, () => {
@@ -45,21 +49,7 @@ app.listen(port, () => {
 })
 
 // Listen to the specified port, otherwise 3080
-const PORT = process.env.PORT || 3080;
+const PORT = process.env.PORT || 8090;
 const server = app.listen(PORT, () => {
   console.log(`Server Running: http://localhost:${PORT}`);
 });
-
-
-// /**
-// //  * The SIGTERM signal is a generic signal used to cause program 
-// //  * termination. Unlike SIGKILL , this signal can be blocked, 
-// //  * handled, and ignored. It is the normal way to politely ask a 
-// //  * program to terminate. The shell command kill generates 
-// //  * SIGTERM by default.
-// //  */
-// process.on('SIGTERM', () => {
-//     server.close(() => {
-//         console.log('Server Close: Process Terminated!');
-//     });
-// });
