@@ -2,16 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-
-
-const port = process.env.PORT = `5432`|| 8080;
+const port = process.env.PORT || 8080;
 
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: process.env.DB_USER = 'postgres',
   password: process.env.DB_PASS = 'lauren97',
   database: process.env.DB_NAME = 'wordle-contest',
-  port: process.env.PG_PORT = `5432`,       //5432
+  port: process.env.PORT = `5432`,
   socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
 })
 
