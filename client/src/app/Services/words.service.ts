@@ -10,6 +10,7 @@ import { map } from 'rxjs';
 export class WordsService {
  
   private apiURL = "http://localhost:3080/"; //YOUR API URL
+  // private apiURL = "https://wordlecontest-apbdgrv74a-uc.a.run.app"; //YOUR API URL
 
   wordsList: Word[] = [];
 
