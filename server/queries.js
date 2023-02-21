@@ -1,11 +1,20 @@
 //pkill -f node
 
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'postgres',
-  host: '35.193.9.16',
-  database: 'postgres',
-  password: 'sDf%QpOPP:HI,q4R',
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: '35.193.9.16',
+//   database: 'postgres',
+//   password: 'sDf%QpOPP:HI,q4R',
+//   port: 5432,
+// })
+const mysql = require ("mysql");
+
+const pool = mysql.createPool({
+  user: "root",
+  host: "34.29.226.181",
+  password: "meow",
+  database : "wordle",
   port: 5432,
 })
 
