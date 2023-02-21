@@ -2,7 +2,7 @@ GOOGLE_PROJECT_ID=arcane-fire-378117
 CLOUD_RUN_SERVICE=wordleserver
 INSTANCE_CONNECTION_NAME=arcane-fire-378117:us-central1:wordle-contest
 DB_USER=postgres
-DB_PASS=lauren97
+DB_PASS=pass
 DB_NAME=wordle-contest
 
 gcloud builds submit --tag gcr.io/$GOOGLE_PROJECT_ID/$CLOUD_RUN_SERVICE \ 
